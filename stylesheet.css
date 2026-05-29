@@ -1,3 +1,7 @@
+body {
+    font-family: Montserrat;
+    color: #515076;
+}
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -10,9 +14,7 @@
 
 h1 {
     font-size: 70px;
-    font-family: Montserrat;
     font-weight: 400;
-    color: #515076;
     text-align: center;
 }
 .product-card {
@@ -30,36 +32,29 @@ h1 {
     box-shadow: 0 20px 32px rgba(0, 0, 0, 0.12);
 }
 
-img {
+.product-card img {
     width: 290px;
     height: 245px;
     margin: 0 auto;
 }
 
-.pre-h2 {
+.pre-title {
     font-size: 12px;
-    font-family: Montserrat;
     font-weight: 400;
     color: #A5A3B9;
 }
-h2 {
+.title {
     font-size: 20px;
-    font-family: Montserrat;
     font-weight: 700;
-    color: #515076;
 }
 
-p {
+.description {
     font-size: 13px;
-    font-family: Montserrat;
     font-weight: 400;
-    color: #515076;
 }
 
 .composition {
-    color: #515076;
     font-size: 13px;
-    font-family: Montserrat;
     font-weight: 400;
 }
 
@@ -67,24 +62,16 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #515076;
     font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
 
 .price-label {
-    color: #515076;
-    font-size: 20px;
-    font-family: Montserrat;
     font-weight: 700;
     text-align: left;
 }
 
 .price-value {
-    color: #515076;
-    font-size: 20px;
-    font-family: Montserrat;
     font-weight: 400;
     text-align: right;
 }
