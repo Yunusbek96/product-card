@@ -1,5 +1,5 @@
 body {
-    font-family: Montserrat;
+    font-family: Montserrat, sans-serif;
     color: #515076;
 }
 .container {
@@ -17,6 +17,7 @@ h1 {
     font-weight: 400;
     text-align: center;
 }
+
 .product-card {
     background-color: #F7F7FA;
     width: 340px;
@@ -25,7 +26,20 @@ h1 {
     padding: 25px;
     box-sizing: border-box;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-    transition: box-shadow 0.2s ease;
+    cursor: grab;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    will-change: transform;
+}
+
+.product-card.dragging {
+    cursor: grabbing;
+    transition: none; /* важно: убираем transition при перетаскивании */
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 0.5px rgba(255, 255, 255, 0.1);
+    z-index: 9999;
+}
+
+.product-card.snapping {
+    transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.4s ease;
 }
 
 .product-card:hover {
@@ -36,6 +50,8 @@ h1 {
     width: 290px;
     height: 245px;
     margin: 0 auto;
+    display: block;
+    pointer-events: none; 
 }
 
 .pre-title {
