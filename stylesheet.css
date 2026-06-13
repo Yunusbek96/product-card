@@ -50,6 +50,13 @@ h1 {
   width: 290px;
   height: 245px;
   margin: 0 auto;
+  object-fit: cover;
+  display: block;
+  background-color: #e0e0e0;
+  font-size: 0;
+  line-height: 245px;
+  text-align: center;
+  color: transparent;
 }
 
 .pre-title {
