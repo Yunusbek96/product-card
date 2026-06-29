@@ -1,24 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Montserrat', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   color: #515076;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
+.catalog {
   max-width: 1280px;
-  max-height: 1715px;
   margin: 0 auto;
   padding: 0 15px;
-  box-sizing: border-box;
+  position: relative;
 }
 
-.title {
+.catalog__title {
   font-size: 70px;
   font-weight: 400;
   text-align: center;
 }
 
-.background-image {
+.catalog__bg {
   background-image: url("../images/background.png");
   background-position: 85px 0;
   background-repeat: no-repeat;
@@ -30,7 +34,7 @@ body {
   z-index: -1;
 }
 
-.main {
+.product-list {
   display: flex;
   flex-wrap: wrap;
   gap: 45px;
@@ -61,6 +65,8 @@ body {
   width: 290px;
   height: 245px;
   margin: 0 auto;
+  display: block;
+  object-fit: contain;
 }
 
 .product-card__pre-title {
@@ -160,18 +166,18 @@ body {
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  h1 {
+  .catalog__title {
     font-size: 48px;
   }
 
-  .background-image {
+  .catalog__bg {
     width: 500px;
     height: 440px;
     left: -10%;
     background-size: contain;
   }
 
-  .container {
+  .catalog {
     gap: 16px;
     padding: 0 16px;
   }
@@ -183,7 +189,7 @@ body {
     margin-bottom: 30px;
   }
 
-  .product-card img {
+  .product-card__image {
     width: 100%;
     height: auto;
     max-height: 200px;
@@ -196,17 +202,17 @@ body {
     padding: 16px;
   }
 
-  h1 {
+  .catalog__title {
     font-size: 32px;
     text-align: center;
     margin-top: 0;
   }
 
-  .background-image {
+  .catalog__bg {
     display: none;
   }
 
-  .container {
+  .catalog {
     gap: 20px;
     margin-top: 10px;
   }
@@ -219,15 +225,11 @@ body {
     padding: 20px;
   }
 
-  .product-card img {
+  .product-card__image {
     width: 100%;
     height: auto;
     max-height: 200px;
     object-fit: contain;
-  }
-
-  .title {
-    font-size: 18px;
   }
 
   .product-card__description {
@@ -257,13 +259,13 @@ body {
 }
 
 @media (min-width: 1400px) {
-  .container {
+  .catalog {
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .background-image {
+  .catalog__bg {
     left: 10%;
     width: 900px;
     height: 800px;
