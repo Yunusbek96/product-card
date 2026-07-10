@@ -1,61 +1,99 @@
+const body = document.body;
+const aside = document.querySelector("aside");
+const resizeBtn = document.querySelector('[data-resize-btn]');
+const navLinks = document.querySelectorAll('aside nav ul li')
 
-const cards = document.querySelectorAll('.product-card');
+// Collapse
+resizeBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  body.classList.toggle('sb-expanded');
+});
 
-let activeCard = null;
-let startX, startY, originX, originY;
-let isDragging = false;
+//Esc
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && body.classList.contains('sb-expanded')) {
+    body.classList.remove('sb-expanded');
+  }
+})
 
-cards.forEach(card => {
-  card.addEventListener('mousedown', (e) => {
-    e.preventDefault(); 
-    if (activeCard && activeCard !== card) {
-      resetCard(activeCard);
-    }
-    activeCard = card;
-    isDragging = true;
-    startX = e.clientX;
-    startY = e.clientY;
+// клик вне aside
+document.addEventListener('click', (e) => {
+  if (
+    body.classList.contains('sb-expanded') &&
+    !aside.contains(e.target) &&
+    !resizeBtn.contains(e.target)
+  ) {
+    body.classList.remove('sb-expanded');
+  }
+})
 
-    const matrix = new DOMMatrix(getComputedStyle(card).transform);
-    originX = matrix.m41;
-    originY = matrix.m42;
+//Активный пункт + закрытие
+navLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!link.classList.contains('active')) {
+        document.querySelector('aside nav li.active')?.classList.remove('active');
+        link.classList.add('active');
+      }
 
-    card.classList.add('dragging');
-    card.classList.remove('snapping');
+      body.classList.remove('sb-expanded');
   });
 });
 
-document.addEventListener('mousemove', (e) => {
-  if (!isDragging || !activeCard) return;
-  const dx = e.clientX - startX;
-  const dy = e.clientY - startY;
-  activeCard.style.transform = `translate(${originX + dx}px, ${originY + dy}px) scale(1.05) rotate(1.5deg)`;
+const productCard = document.querySelector('.product-card');
+const productCards = document.querySelectorAll('.product-card');
+const changeFirstCardColor = document.getElementById('change-color-btn');
+const changeAllCardsColor = document.getElementById('change-allcards-color-btn');
+const googleHomepage = document.getElementById('google-homepage');
+
+changeFirstCardColor.addEventListener('click', () => {
+  productCard.style.backgroundColor = 'Cornsilk';
 });
 
-document.addEventListener('mouseup', () => {
-  if (!isDragging || !activeCard) return;
-  const card = activeCard;
-  card.classList.remove('dragging');
-  card.classList.add('snapping');
-  card.style.transform = 'translate(0, 0) scale(1) rotate(0deg)';
-
-  const onFinish = () => {
-    card.classList.remove('snapping');
-    card.style.transform = '';
-    card.removeEventListener('transitionend', onFinish);
-  };
-  card.addEventListener('transitionend', onFinish, { once: true });
-
-  isDragging = false;
-  activeCard = null;
+changeAllCardsColor.addEventListener('click', () => {
+  productCards.forEach((card) => card.style.backgroundColor = 'Bisque')
 });
 
-function resetCard(card) {
-  card.classList.remove('dragging');
-  card.classList.add('snapping');
-  card.style.transform = 'translate(0, 0) scale(1) rotate(0deg)';
-  setTimeout(() => {
-    card.classList.remove('snapping');
-    card.style.transform = '';
-  }, 500);
+googleHomepage.addEventListener('click', openGoogle)
+
+function openGoogle() {
+  const ask = confirm("Вы уверены, что хотите перейти на домашнюю страницу Google?");
+  if (ask === true) {
+    window.open("https://www.google.com");
+  } else {
+    return;
+  }
 }
+
+// Console log
+const consoleLogBtn = document.querySelector('#console-log');
+
+consoleLogBtn.addEventListener('click', () => console.log('Console log кнопка нажата!'))
+
+function logMessage(message) {
+  console.log(message);
+  alert(message);
+}
+
+//6й пункт в ДЗ , счетчик при наведении на заголовок
+const catalogTitle = document.querySelector('.catalog__title');
+
+catalogTitle.addEventListener('mouseenter', (e) => {
+  console.log(e.target.textContent);
+});
+
+//7й пункт в ДЗ , classList
+const themeToggle = document.getElementById('theme-toggle');
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-theme');
+
+    const span = this.querySelector('span');
+    if (span) {
+      span.textContent = document.body.classList.contains('dark-theme') 
+        ? 'Светлая тема' 
+        : 'Тёмная тема';
+    }
+  });
+};
