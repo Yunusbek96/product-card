@@ -1,7 +1,7 @@
 const body = document.body;
-const aside = document.querySelector("aside");
+const aside = document.querySelector(".side-bar");
 const resizeBtn = document.querySelector('[data-resize-btn]');
-const navLinks = document.querySelectorAll('aside nav ul li')
+const navLinks = aside.querySelectorAll('.side-bar__btn-list .side-bar__btn')
 
 // Collapse
 resizeBtn.addEventListener('click', (e) => {
@@ -32,7 +32,7 @@ navLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
       e.preventDefault();
       if (!link.classList.contains('active')) {
-        document.querySelector('aside nav li.active')?.classList.remove('active');
+        document.querySelector('.side-bar .side-bar__btn.active')?.classList.remove('active');
         link.classList.add('active');
       }
 
@@ -58,11 +58,7 @@ googleHomepage.addEventListener('click', openGoogle)
 
 function openGoogle() {
   const ask = confirm("Вы уверены, что хотите перейти на домашнюю страницу Google?");
-  if (ask === true) {
-    window.open("https://www.google.com");
-  } else {
-    return;
-  }
+  if (ask) window.open("https://www.google.com");
 }
 
 // Console log
@@ -96,4 +92,4 @@ if (themeToggle) {
         : 'Тёмная тема';
     }
   });
-};
+}

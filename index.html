@@ -9,16 +9,16 @@
   <script src="https://kit.fontawesome.com/7597abeeff.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-expanded">
-  <aside>
-    <nav>
-      <ul>
-        <li id="change-color-btn"><i class="fa-solid fa-hand-point-up"></i><span>Первая карточка</span></li>
-        <li id="change-allcards-color-btn"><i class="fa-solid fa-border-all"></i><span>Все карточки</span></li>
-        <li id="google-homepage"><i class="fa-solid fa-square-arrow-up-right"></i><span>Дом. страница Google</span></li>
-        <li id="console-log"><i class="fa-solid fa-terminal"></i><span>Console log</span></li>
-        <li id="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i><span>Тёмная тема</span></li>
+  <aside class="side-bar">
+    <nav class="side-bar__nav">
+      <ul class="side-bar__btn-list">
+        <li class="side-bar__btn" id="change-color-btn"><i class="fa-solid fa-hand-point-up"></i><span>Первая карточка</span></li>
+        <li class="side-bar__btn" id="change-allcards-color-btn"><i class="fa-solid fa-border-all"></i><span>Все карточки</span></li>
+        <li class="side-bar__btn" id="google-homepage"><i class="fa-solid fa-square-arrow-up-right"></i><span>Дом. страница Google</span></li>
+        <li class="side-bar__btn" id="console-log"><i class="fa-solid fa-terminal"></i><span>Console log</span></li>
+        <li class="side-bar__btn" id="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i><span>Тёмная тема</span></li>
       </ul>
-      <button type="button" data-resize-btn class="active">
+      <button type="button" data-resize-btn class="active side-bar__btn">
         <i class="fa-solid fa-chevron-down"></i>
         <span>Collapse</span>
       </button>
