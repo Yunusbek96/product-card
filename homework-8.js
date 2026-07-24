@@ -28,25 +28,7 @@ const car = {
   transmission: "Механика"
 };
 
-car.owner = {
-  firstName: "Юнусбек",
-  lastName: "Сапарматов",
-  email: "mr_stone@example.com",
-  job: "Frontend-разработчик",
-  position: "junior",
-  age: 30,
-  country: "Россия",
-  city: "Санкт-Петербург",
-  relationshipStatus: "В отношениях",
-  isActive: true,
-  skills: [
-    "JavaScript", "HTML", "CSS"
-  ],
-  address: {
-    street: "Гражданский пр.",
-    house: 92,
-  }
-};
+car.owner = userProfile;
 
 //5-й пункт
 function addMaxSpeed(car) {
