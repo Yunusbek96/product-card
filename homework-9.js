@@ -1,6 +1,12 @@
+// 5.
+// 6.
+import { socialMediaComments } from './comments.js';
+
+console.log('homework-9.js подключен', socialMediaComments);
+
 // Уровень 1
 // 2.
-const numbers = [1,2,3,4,5,6,7,8,9,10];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const result = numbers.filter(number => number >= 5);
 
@@ -31,14 +37,8 @@ console.log(reverseArray(numbers));
 console.log(reverseArray(movies));
 
 // Уровень 2
-// 5.
-// 6.
-import { socialMediaComments } from './comments.js';
-
-console.log('homework-9.js подключен', socialMediaComments);
-
 // 7.
-const comComments = socialMediaComments.filter(comment => comment.email.endsWith('.com'));
+const comComments = socialMediaComments.filter(comment => comment.email.includes('.com'));
 
 console.log(comComments);
 
