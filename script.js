@@ -40,21 +40,30 @@ navLinks.forEach((link) => {
   });
 });
 
-const productCard = document.querySelector('.product-card');
-const productCards = document.querySelectorAll('.product-card');
 const changeFirstCardColor = document.getElementById('change-color-btn');
 const changeAllCardsColor = document.getElementById('change-allcards-color-btn');
 const googleHomepage = document.getElementById('google-homepage');
 
 changeFirstCardColor.addEventListener('click', () => {
-  productCard.style.backgroundColor = 'Cornsilk';
+  // Ищем карточку прямо в момент клика
+  const firstCard = document.querySelector('.product-card');
+  if (firstCard) {
+    firstCard.style.backgroundColor = 'Cornsilk';
+  } else {
+    console.warn('Первая карточка не найдена! Проверьте работу homework-10.js');
+  }
 });
 
 changeAllCardsColor.addEventListener('click', () => {
-  productCards.forEach((card) => card.style.backgroundColor = 'Bisque')
+  const allCards = document.querySelectorAll('.product-card');
+  if (allCards.length > 0) {
+    allCards.forEach((card) => card.style.backgroundColor = 'Bisque');
+  } else {
+    console.warn('Карточки не найдены!');
+  }
 });
 
-googleHomepage.addEventListener('click', openGoogle)
+googleHomepage.addEventListener('click', openGoogle);
 
 function openGoogle() {
   const ask = confirm("Вы уверены, что хотите перейти на домашнюю страницу Google?");
