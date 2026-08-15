@@ -1,32 +1,6 @@
 //2.
 import { products } from './products.js';
 
-// //3.
-// const template = document.getElementById('product-card-template');
-// const productList = document.querySelector('.catalog__product-list');
-
-// products.forEach(product => {
-//   const cardClone = template.content.cloneNode(true);
-//   const img = cardClone.querySelector('.product-card__image');
-//   img.src = product.image;
-//   img.alt = product.title;
-
-//   cardClone.querySelector('.product-card__pre-title').textContent = product.preTitle;
-//   cardClone.querySelector('.product-card__title').textContent = product.title;
-//   cardClone.querySelector('.product-card__description').textContent = product.description;
-//   cardClone.querySelector('.product-card__price-value').textContent = `${product.price.toLocaleString('ru-RU')} ₽`;
-
-//   const compositionList = cardClone.querySelector('.product-card__composition-list');
-//   compositionList.innerHTML = '';
-//   product.composition.forEach(item => {
-//     const li = document.createElement('li');
-//     li.textContent = item;
-//     compositionList.appendChild(li);
-//   });
-//   productList.appendChild(cardClone);
-// }
-// );
-
 //4
 const productDescriptions = products.reduce((acc, product) => {
   acc[product.title] = product.description;
