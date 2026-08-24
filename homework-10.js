@@ -2,10 +2,12 @@
 import { products } from './products.js';
 
 //4
-const productDescriptions = products.reduce((acc, product) => {
-  acc[product.title] = product.description;
-  return acc;
-}, {});
+const productDescriptions = products.reduce((products, product) => {
+  products.push({
+    [product.title]: product.description
+  });
+  return products;
+}, []);
 
 console.log('Результат reduce (Название -> Описание):', productDescriptions);
 
