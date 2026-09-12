@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../styles/stylesheet.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Product Cards</title>
+  <link rel="stylesheet" href="styles/stylesheet.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7597abeeff.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-expanded">
@@ -53,11 +53,97 @@
     </template>
     <ul class="catalog__product-list"></ul>
   </div>
+  <footer class="footer-container">
+    <div class="footer-top">
+      <div class="footer-social">
+        <h3 class="footer-social__title">Product Cards</h3>
+        <p class="footer-social__paragraph">У нас самые лучшие продукты для кожи!</p>
+        <div class="social-links">
+          <a href="#" aria-label="Telegram">
+            <img class="social-links__img" src="images/TG.png" alt="Telegram">
+          </a>
+          <a href="#" aria-label="ВКонтакте">
+            <img class="social-links__img" src="images/VK.png" alt="ВКонтакте">
+          </a>
+        </div>
+      </div>
+      <div class="footer-subscribe">
+        <h3 class="footer-subscribe__title">Подпишись на наши акции:</h3>
+        <form id="subscribeForm">
+          <div class="input-group">
+            <label for="subscribeEmail" class="visually-hidden">Ваш Email</label>
+            <input type="email" id="subscribeEmail" name="email" placeholder="Введи Email..." required>
+            <button class="input-group__btn" type="submit">Подписаться</button>
+          </div>
+        </form>
+      </div>
+      <nav class="footer-nav">
+        <h3 class="footer-nav__title">Быстрые ссылки</h3>
+        <ul class="footer-nav__unOrderedList">
+          <li class="footer-nav__unOrderedListPoint"><a class="footer-nav__unOrderedListPointsLink" href="#">Главная</a>
+
+          </li>
+          <li class="footer-nav__unOrderedListPoint">
+            <a class="footer-nav__unOrderedListPointsLink" href="#">Магазин</a>
+          </li>
+          <li class="footer-nav__unOrderedListPoint">
+            <a class="footer-nav__unOrderedListPointsLink" href="#">Контакты</a>
+          </li>
+          <li class="footer-nav__unOrderedListPoint">
+            <button id="registerBtn">Регистрация</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-bottom__paragraph">www.product-cards.com©all right reserve</p>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="registerModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" id="modalClose" aria-label="Закрыть">x</button>
+      <h2 class="modal__title" id="modalTitle">Регистрация</h2>
+      <form class="modal__form" id="registerForm">
+        <div class="form-group">
+          <label for="regName">Имя:</label>
+          <input class="form-group__input" type="text" id="regName" name="name" required placeholder="Введите имя">
+        </div>
+        
+        <div class="form-group">
+          <label for="regSurname">Фамилия:</label>
+          <input class="form-group__input" type="text" id="regSurname" name="surname" required placeholder="Введите фамилию">
+        </div>
+
+        <div class="form-group">
+          <label for="regBirthdate">Дата рождения:</label>
+          <input class="form-group__input" type="date" id="regBirthdate" name="birthdate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="regLogin">Логин:</label>
+          <input class="form-group__input" type="text" id="regLogin" name="login" required placeholder="Придумайте логин">
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword">Пароль:</label>
+          <input class="form-group__input" type="password" id="regPassword" name="password" required placeholder="Придумайте пароль">
+        </div>
+
+        <div class="form-group">
+          <label for="regConfirmPassword">Повторение пароля:</label>
+          <input class="form-group__input" type="password" id="regConfirmPassword" name="confirmPassword" required placeholder="Повторите пароль">
+        </div>
+
+        <button type="submit" class="modal__submit">Зарегистрироваться</button>
+      </form>
+    </div>
+  </div>
   <script src="script.js"></script>
   <script src="homework-7.js"></script>
   <script src="homework-8.js"></script>
   <script type="module" src="homework-9.js"></script>
   <script src="comments.js"></script>
   <script type="module" src="homework-10.js"></script>
+  <script src="homework-11.js"></script>
 </body>
 </html>
