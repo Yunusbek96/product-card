@@ -395,7 +395,7 @@ body.dark-theme nav button:hover {
   align-items: center;
 }
 
-.input-group input {
+.input-group__input {
   border: none;
   outline: none;
   flex-grow: 1;
@@ -405,7 +405,7 @@ body.dark-theme nav button:hover {
   background: transparent;
 }
 
-.input-group input::placeholder {
+.input-group__input::placeholder {
   color: #999;
 }
 
@@ -430,24 +430,24 @@ body.dark-theme nav button:hover {
   justify-self: end;
 }
 
-.footer-nav__unOrderedList {
+.footer-nav__list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.footer-nav__unOrderedListPoint {
+.footer-nav__item {
   margin-bottom: 10px;
 }
 
-.footer-nav__unOrderedListPointsLink {
+.footer-nav__link {
   color: #b0b0b0;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s ease;
 }
 
-.footer-nav__unOrderedListPointsLink:hover {
+.footer-nav__link:hover {
   color: #ffffff;
   text-decoration: underline;
 }
