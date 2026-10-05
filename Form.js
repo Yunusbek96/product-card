@@ -1,9 +1,20 @@
 export class Form {
   constructor(formId) {
     this.formElement = document.getElementById(formId);
+    if (!this.formElement) {
+      console.error(`Форма с id="${formId}" не найдена`);
+    }
   }
 
-  // I. Метод для получения всех значений формы
+  onSubmit(callback) {
+    if (this.formElement) {
+      this.formElement.addEventListener('submit', (e) => {
+        e.preventDefault();
+        callback();
+      });
+    }
+  }
+
   getValues() {
     const formData = new FormData(this.formElement);
     const values = {};
@@ -13,12 +24,10 @@ export class Form {
     return values;
   }
 
-  // II. Метод для проверки валидности формы (возвращает true/false)
   isValid() {
     return this.formElement.checkValidity();
   }
 
-  // III. Метод для сброса значений формы
   reset() {
     this.formElement.reset();
   }

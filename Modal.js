@@ -10,19 +10,20 @@ export class Modal {
 
     this.closeBtn = this.modalElement.querySelector('.modal__close');
 
-    // 1. Навешиваем обработчик на крестик
+    this.addCloseListeners();
+  }
+
+  addCloseListeners() {
     if (this.closeBtn) {
       this.closeBtn.addEventListener('click', () => this.close());
     }
 
-    // 2. Закрытие по клику на темный фон
     this.modalElement.addEventListener('click', (e) => {
       if (e.target === this.modalElement) {
         this.close();
       }
     });
 
-    // 3. Закрытие по клавише Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.isOpen()) {
         this.close();

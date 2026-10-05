@@ -15,61 +15,39 @@ if (registerBtn) {
 // Внешняя переменная user (объявляем в глобальной области)
 let user = null;
 
-// Обработка отправки формы
-if (registerForm.formElement) {
-  registerForm.formElement.addEventListener('submit', (e) => {
-    e.preventDefault();
+// Обработка отправки формы регистрации через новый метод
+registerForm.onSubmit(() => {
+  if (!registerForm.isValid()) {
+    alert('Пожалуйста, заполните все поля корректно.');
+    return;
+  }
 
-    //1. Проверка валидности через метод класса Form
-    if (!registerForm.isValid()) {
-      alert('Пожалуйста, заполните все поля корректно.');
-      return;
-    }
+  const values = registerForm.getValues();
 
-    // 2. Получаем все значения формы через метод класса Form
-    const values = registerForm.getValues();
+  if (values.password !== values.confirmPassword) {
+    alert('Пароли не совпадают! Проверьте введенные данные.');
+    return;
+  }
 
-    // 3. Проверка совпадения паролей
-    if (values.password !== values.confirmPassword) {
-      alert('Пароли не совпадают! Проверьте введенные данные.');
-      return;
-    }
+  user = {
+    name: values.name,
+    surname: values.surname,
+    birthdate: values.birthdate,
+    login: values.login,
+    password: values.password,
+    createdOn: new Date()
+  };
 
-    // 4. Выводим значения в лог
-    console.log('Значения формы:');
-    console.log('Имя:', values.name);
-    console.log('Фамилия:', values.surname);
-    console.log('Дата рождения:', values.birthdate);
-    console.log('Логин:', values.login);
-    console.log('Пароль:', values.password);
+  console.log('Объект пользователя:', user);
 
-    // 5. Создаем объект user с createdOn
-    user = {
-      name: values.name,
-      surname: values.surname,
-      birthdate: values.birthdate,
-      login: values.login,
-      password: values.password,
-      createdOn: new Date()
-    };
+  alert('Регистрация прошла успешно!');
+  registerModal.close();
+  registerForm.reset();
+});
 
-    console.log('Объект пользователя:', user);
-
-    // 6. Закрываем модалку и сбрасываем форму через методы классов
-    alert('Регистрация прошла успешно!');
-    registerModal.close();
-    registerForm.reset();
-  });
-}
-
-// Подписка в футере
-if (subscribeForm.formElement) {
-  subscribeForm.formElement.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const subscribeData = subscribeForm.getValues();
-    console.log('Подписка: ', subscribeData);
-
-    // Сброс формы после подписки
-    subscribeForm.reset();
-  });
-}
+// Подписка в футере через новый метод
+subscribeForm.onSubmit(() => {
+  const subscribeData = subscribeForm.getValues();
+  console.log('Подписка: ', subscribeData);
+  subscribeForm.reset();
+});
