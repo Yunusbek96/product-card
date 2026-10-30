@@ -595,7 +595,7 @@ body.dark-theme .form-group {
   color: #a5a3b9;
 }
 
-.body.dark-theme .form-group__input {
+body.dark-theme .form-group__input {
   background: #3a3a5e;
   border-color: #555;
   color: #fff;
