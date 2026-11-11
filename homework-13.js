@@ -43,7 +43,8 @@ class Coffee extends Drink {
     this.milk = milk;
   }
 
-  getCoffeeInfo() {
+  getInfo() {
+    super.getInfo();
     console.log(`Зерна: ${this.grains}, Молоко: ${this.milk}`);
   }
 }
@@ -55,7 +56,8 @@ class Tea extends Drink {
     this.sugar = sugar;
   }
 
-  getTeaInfo() {
+  getInfo() {
+    super.getInfo();
     console.log(`Тип чая: ${this.type}, Сахар: ${this.sugar}`);
   }
 }
